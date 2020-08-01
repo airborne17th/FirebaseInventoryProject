@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Basics</title>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpqTaJuqbwL0iKWmHas_TKQbNS66IY5UY",
+      authDomain: "custom-inventory.firebaseapp.com",
+      databaseURL: "https://custom-inventory.firebaseio.com",
+      projectId: "custom-inventory",
+      storageBucket: "custom-inventory.appspot.com",
+      messagingSenderId: "10764624392",
+      appId: "1:10764624392:web:193704e0ec560930ff27bd",
+      measurementId: "G-NC1SF7V307"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <script src="app.js" defer></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"
+    integrity="sha512-/seDHxVfh1NvFUscAj8GsHQVZJvr2jjAoYsNL7As2FCaFHUHYIarl3sRCvVlFgyouVNiRgHIebyLKjpgd1SLDw=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+<body>
+  <div class="parent">
+    <div class="container">
+      <h1>My Awesome App 🔥</h1>
+
+      <section id="whenSignedOut">
+
+        <button id="signInBtn" class="btn btn-primary">Sign in with Google</button>
+
+      </section>
+
+      <section>
+
+        <label id="switch" class="switch">
+          <input type="checkbox" onchange="toggleTheme()" id="slider">
+          <span class="slider round"></span>
+        </label>
+      </section>
+    </div>
+
+    <div class="container">
+      <section id="whenSignedIn" hidden="true">
+
+        <div id="userDetails"></div>
+
+        <button id="signOutBtn" class="btn btn-primary">Sign Out</button>
+
+      </section>
+    </div>
+
+    <hr>
+
+    <div class="container">
+      <section>
+
+        <h2>My Firestore Things</h2>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Name of Item"><br>
+        <label for="weight">Weight:</label><br>
+        <input type="number" id="weight" name="weight" placeholder="Weight of Item"><br>
+        <label for="qty">QTY:</label><br>
+        <input type="number" id="qty" name="qty" placeholder="Number of Item"><br>
+        <label for="notes">Notes:</label><br>
+        <input type="text" id="notes" name="notes" placeholder="Custom Notes on Item"><br><br>
+        <button id="createThing" class="btn btn-success">Create Inventory Item</button><br><br>
+      </section>
+
+      <ul id="thingsList">
+
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
